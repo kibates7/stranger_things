@@ -1,0 +1,37 @@
+.login__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.login__form > input {
+    width: 200px;
+    padding: 10px;
+    outline-width: 0;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    margin: 10px;
+    font-size: 18px;
+    
+}
+
+.login__form > button {
+    width: 200px;
+    text-transform: inherit !important;
+    background-color: rgb(114, 21, 21);
+    color: white;
+    
+}
+
+.login__form > button:hover {
+    background-color: white; 
+    color: rgb(114, 21, 21);;
+}
+
+.login__form > input:focus {
+    outline-width: 0;
+}
+    

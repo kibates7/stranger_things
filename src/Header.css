@@ -1,25 +1,27 @@
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: rgb(114, 21, 21);
     color: white;
     align-items: center;
-    position: sticky;
-    top: 0;
     z-index: 100;
     width: 100%;
+    
+    
 }
 
 .header > h1 {
     display:inline;
-    padding: 0;
-    margin: 0;
+    padding: 5px;
+    margin: 15px;
 }
 
 .header__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 10px;
+    
 }
 
 
@@ -27,6 +29,7 @@
     text-decoration: none;
     color: white;
     padding: 10px;
+    margin: 5px;
     
 }
 
