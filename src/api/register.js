@@ -4,25 +4,46 @@
 //import Register from './Register'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
-export const register = (username, pwd) => {
-    const response = fetch(`${BASE_URL}/users/register`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            user: {
-                username: username,
-                password: pwd
-            }
+export const register = async (username, pwd) => {
+    try{
+        const response = await fetch(`${BASE_URL}/users/register`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    username: username,
+                    password: pwd
+                }
+            })
         })
-    }).then(response => response.json())
-      .then(result => {
-          console.log(result);
-          localStorage.setItem('token', result.data.token)
-          //console.log(result.data.token);
+        const result = await response.json()
+        if(result.success) {
+            localStorage.setItem('token', result.data.token)
+            return result
+        }
+    }
+    catch(err) {console.log(err)}
+    
+    
+    //localStorage.setItem('token', result.data.token)
+    
+    
+
+    // }).then(response => response.json())
+    //   .then(result => {
+    //       console.log(result);
+    //       if(result.data.success) {
+    //         localStorage.setItem('token', result.data.token)
+    //         return result
+            
+    //       }
+    //       else return result.error.message
+    //       //console.log(result.data.token);
+    //       //return result
           
-      })
-      .catch (console.log(error))
+    //   })
+    //   .catch (console.error())
 }
 

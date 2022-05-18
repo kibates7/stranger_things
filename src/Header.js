@@ -5,8 +5,8 @@ import './Header.css'
 const Header = ({isLoggedIn}) => {
     return (
         <div className='header'>
-           
-                <h1>Stranger's Things</h1>
+           <Link className='nav_link' to="/"> <h1>Stranger's Things</h1></Link> 
+               
                 <div className='header__nav'>
                     <Link className='nav_link' to="/">Home</Link> 
                     <Link className='nav_link' to="/posts">Posts</Link>

@@ -1,25 +1,47 @@
 //This file contains all calls to the API
-function Index(props) {
- const BASE_URL = 'https://strangers-things.herokuapp.com/api/2202-FTB-ET-WEB-PT'
+
+ const BASE_URL = process.env.REACT_APP_BASE_URL
 
 
-//This will fetch all inside of the api
-const fetchAllData = async () => {
-    try {
-        const response = await fetch(`${BASE_URL}/posts`)
+//This will fetch user info inside of the api
+export const fetchUserInfo = async (localToken) => {
+    const response = await fetch(`${BASE_URL}/users/me`,{
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localToken}`
+        }
+        })
         const result = await response.json()
-        const data = result.data.posts
-        props.setPosts(data)
-        
-    } catch (error) {
-        console.log(error)
-    }
+        return result.data
+}
+
+export const createPost = async (title, description, price, deliver, localToken) => {
+    console.log("current token", localToken)
+    const response = await fetch(`${BASE_URL}/posts`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localToken}`
+        },
+        body: JSON.stringify({
+            post:{
+                title: title, 
+                description: description, 
+                price: price,
+                willDeliver: deliver
+            }
+            })
+    }).then(response => response.json())
+    .then(result => {
+      console.log(result);
+    })
+    .catch(console.error);
+
 }
 
 
 
 
 
-}
 
-export default Index
+

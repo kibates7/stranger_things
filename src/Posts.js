@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './Posts.css'
+import UserPosts from './UserPosts';
+import {BrowserRouter as Router, useHistory } from "react-router-dom"
+import {Button} from '@mui/material'
 
-const Posts = () => {
+const Posts = ({isLoggedIn}) => {
     const BASE_URL = 'https://strangers-things.herokuapp.com/api/2202-FTB-ET-WEB-PT'
     const [posts, setPosts] = useState([])
+    const history = useHistory()
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -23,15 +27,28 @@ const Posts = () => {
 
     return (
         <div className='posts'>
-            
+
+          <h1>ALL POSTS</h1>
+          {
+            isLoggedIn ? <Button variant='contained' onClick={()=> history.push("/posts/me")}>Show My Posts</Button> : <Button variant='contained' onClick={()=> history.push("/login")}>Login to view your posts</Button>
+          }
+         
         {
+          
+          
           posts.map(post => 
             <div className="posts__map"key={post._id}>
                <h1>{post.title}</h1>
                <h3>{post.description}</h3>
+               <p>{post.price}</p>
+               <Button variant='outlined'>View</Button>
+               
             </div>
           )
+          
         }
+
+        
       
         </div>
     );

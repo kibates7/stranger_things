@@ -1,22 +1,22 @@
-import Login from "../Login";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL
-export const login = (user, pwd) => {
-const response = fetch(`${BASE_URL}/users/login`, {
+export const login = async (user, pwd) => {
+const response = await fetch(`${BASE_URL}/users/login`, {
     method: "POST",
     headers: {
         'Content-Type': 'application/json'
+        
     },
     body: JSON.stringify({
         user: {
             username: user,
-            password: pwd
+            password: pwd,
     }
 })
-
-}).then(response => response.json())
-.then(result => {
-    localStorage.getItem('token')
-    console.log(localStorage);
 })
-  .catch(console.error);
+const result = await response.json()
+localStorage.getItem('token')
+console.log(result)
+return result
+
 }

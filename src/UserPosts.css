@@ -1,0 +1,21 @@
+.user__posts {
+    text-align: center;
+}
+
+.user__btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.user__btns > button {
+    width: 200px;
+    text-transform: inherit !important;
+    background-color: rgb(114, 21, 21);
+    color: white; 
+
+}
+
+.user__btns > button:hover {
+    background-color: white; 
+    color: rgb(114, 21, 21);;
+}

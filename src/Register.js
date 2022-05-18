@@ -10,7 +10,9 @@ const Register = ({token}) => {
     const [firstPassword, setFirstPassword] = useState("") 
     const [password, setPassword] = useState("")  
     const [loginFailure, setLoginFailure] = useState(false)  
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("")  
+
+    
     const history = useHistory()
 
     const handleSubmit = (e) => {
@@ -23,6 +25,7 @@ const Register = ({token}) => {
         else{
         console.log('username, pass: ', userName, password, token)
         register(userName, password)
+       
 
         if(token){
             setFirstPassword("")
@@ -30,6 +33,11 @@ const Register = ({token}) => {
             setPassword("");
             history.push('/login')
         }
+
+        // else{
+        //     setError(register(userName, password))
+        //     console.log('error is ', error);
+        // }
     }
         
     }
@@ -53,6 +61,9 @@ const Register = ({token}) => {
                 {
                     loginFailure ? <p>Passwords do not match.</p> : <p></p>
                 }
+                {/* {
+                    error ? <p></p> : <p>{error}</p> 
+                } */}
                 <Button variant="contained" type="submit">Register</Button>
                 <br />
                 <Link to="/login">Already have an account? Sign in now</Link>

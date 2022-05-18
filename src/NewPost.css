@@ -1,0 +1,36 @@
+.NewPost {
+    text-align: center;
+ }
+ 
+ .newPost__form {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+ 
+ }
+ 
+ .newPost__form > input {
+     width: 200px;
+     padding: 10px;
+     outline-width: 0;
+     height: 30px;
+     border: 1px solid lightgray;
+     border-radius: 10px;
+     margin: 10px;
+     font-size: 18px;
+     
+ }
+ 
+ .newPost__form > button {
+     width: 200px;
+     text-transform: inherit !important;
+     background-color: rgb(114, 21, 21);
+     color: white;
+     
+ }
+ 
+ .newPost__form > button:hover {
+     background-color: white; 
+     color: rgb(114, 21, 21);;
+ }

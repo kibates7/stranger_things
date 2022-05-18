@@ -1,32 +1,44 @@
 import React, {useState} from 'react';
-import {Button} from '@mui/material'
+import {Button, getTouchRippleUtilityClass} from '@mui/material'
 import {useHistory, Link } from "react-router-dom"
 import {login} from './api/login'
 import './Login.css'
+import { useAlert } from 'react-alert'
 
 
-const Login = ({token, setIsLoggedIn}) => {
+const Login = ({token, setIsLoggedIn, setToken}) => {
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")  
     const [loginFailure, setLoginFailure] = useState(false)  
     const history = useHistory()
+    const alert = useAlert();
    
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        //console.log('username, pass: ', userName, password, token)
-        login(userName, password)
-        console.log('token: ', token)
-        setUserName("");
-        setPassword("");
-        if(token){
-        history.push('/')
-        setIsLoggedIn(true)
-        }
-        else{
+        try {
+            const response = await login(userName, password)
+            console.log(response.success)
+           if(response.success === true){
+            localStorage.setItem('token', response.data.token)
+            alert.success('Successfully logged in')
+             history.push('/posts/me')
+            setIsLoggedIn(true)
+            setUserName("");
+            setPassword("");
+           }
+           else{
             setLoginFailure(true)
-        }
+           }
+           
             
+           
+        } catch (error) {
+            console.error()
+        }
+
+        
+        
     }
 
     return (

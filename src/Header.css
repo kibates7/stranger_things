@@ -13,7 +13,7 @@
 .header > h1 {
     display:inline;
     padding: 5px;
-    margin: 15px;
+    margin: 5px;
 }
 
 .header__nav {
@@ -29,7 +29,7 @@
     text-decoration: none;
     color: white;
     padding: 10px;
-    margin: 5px;
+    margin: 3px;
     
 }
 
