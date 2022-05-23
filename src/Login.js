@@ -26,6 +26,7 @@ const Login = ({token, setIsLoggedIn, setToken}) => {
             setIsLoggedIn(true)
             setUserName("");
             setPassword("");
+        
            }
            else{
             setLoginFailure(true)

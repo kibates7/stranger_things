@@ -1,5 +1,13 @@
 .user__posts {
     text-align: center;
+   
+}
+
+.posts__map {
+    border-bottom: 1px solid black;
+    box-shadow: 5px 5px 5px 3px gray;
+    margin-top: 5px;
+    padding: 10px;
 }
 
 .user__btns {
@@ -12,6 +20,7 @@
     text-transform: inherit !important;
     background-color: rgb(114, 21, 21);
     color: white; 
+    font-size: 12px;
 
 }
 

@@ -9,6 +9,9 @@
 .posts__map {
     text-align: left;
     border-bottom: 1px solid black;
+    box-shadow: 5px 5px 5px 3px gray;
+    margin-top: 5px;
+    padding: 10px;
 }
 .posts__map > h3 {
     
@@ -19,7 +22,9 @@
     text-transform: inherit !important;
     background-color: rgb(114, 21, 21);
     color: white;
+    font-size: 12px;
 }
+
 
 .posts > button:hover{
     background-color: white; 

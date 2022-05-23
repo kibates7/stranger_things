@@ -1,8 +1,8 @@
-.NewPost {
+.EditPost {
     text-align: center;
  }
  
- .newPost__form {
+ .editPost__form {
      display: flex;
      flex-direction: column;
      justify-content: space-around;
@@ -10,7 +10,7 @@
  
  }
  
- .newPost__form > input {
+ .editPost__form > input {
      width: 200px;
      padding: 10px;
      outline-width: 0;
@@ -22,7 +22,7 @@
      
  }
  
- .newPost__form > button {
+ .editPost__form > button {
      width: 200px;
      text-transform: inherit !important;
      background-color: rgb(114, 21, 21);
@@ -31,7 +31,7 @@
      
  }
  
- .newPost__form > button:hover {
+ .editPost__form > button:hover {
      background-color: white; 
      color: rgb(114, 21, 21);;
  }

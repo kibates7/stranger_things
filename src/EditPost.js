@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button} from '@mui/material'
 import NumberFormat from 'react-number-format';
-import './NewPost.css'
-import {createPost} from './api/index'
-import {BrowserRouter as Router, useHistory } from "react-router-dom"
+import './EditPost.css'
+import {editPost} from './api/index'
+import {BrowserRouter as Router, useHistory, useLocation } from "react-router-dom"
 
 const NewPost = () => {
     const [title, setTitle] = useState("")
@@ -12,17 +12,30 @@ const NewPost = () => {
     const [location, setLocation] = useState("")  
     const [willDeliver, setWillDeliver] = useState(false)
     const history = useHistory()
+    const uselocation = useLocation();
+    const param = uselocation.state.detail;
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        createPost(title, description,price, location, willDeliver, localStorage.getItem("token"))
+        editPost(title, description,price, location, willDeliver, localStorage.getItem("token"), param._id)
         console.log(title, description, price, location, willDeliver);
         history.push('/posts/me')
     }
+
+    useEffect(() => {
+        setTitle(param.title)
+        setDescription(param.description)
+        setPrice(param.price)
+        setLocation(param.location)
+        setWillDeliver(param.willDeliver)
+        //console.log(param);
+    }, [])
+
     return (
-        <div className="NewPost">
-            <form className="newPost__form" onSubmit={handleSubmit}>
-                <h1>Create a new post</h1>
+        <div className="EditPost">
+            <form className="editPost__form" onSubmit={handleSubmit}>
+                {/* {console.log(uselocation)} */}
+                <h1>Edit Post</h1>
                 <label>Title: </label>
                 <input type="text" minLength='1' maxLength='20' required value={title} onChange={(e) => setTitle(e.target.value)}></input>
                 
@@ -38,7 +51,7 @@ const NewPost = () => {
                 <input type="checkbox" value={willDeliver} onChange={(e) => setWillDeliver(e.target.value)}></input>
                 
                 {/* <Button variant="contained" onClick={()=> history.push("/posts/me")} >Go Back To My Posts</Button> */}
-                <Button variant="contained" type="submit">Create Post</Button>
+                <Button variant="contained" type="submit">Edit Post</Button>
                 
                 </form>
                 

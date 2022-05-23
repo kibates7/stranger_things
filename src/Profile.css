@@ -1,0 +1,36 @@
+.profile {
+    text-align: center;
+}
+
+.profile > h1 {
+    font-size:40px
+}
+
+.profile > button {
+    text-transform: inherit !important;
+    background-color: rgb(114, 21, 21);
+    color: white;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.profile > button:hover{
+    background-color: white; 
+    color: rgb(114, 21, 21);;
+}
+
+.messages__map {
+    text-align: left;
+    border-bottom: 1px solid black;
+    box-shadow: 5px 5px 5px 3px gray;
+    margin-top: 5px;
+    padding: 10px;
+}
+.messages__map > h3 {
+    
+    padding-bottom: 10px;
+}
+
+.messages__map > button {
+    font-size: 12px;
+}

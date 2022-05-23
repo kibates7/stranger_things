@@ -10,8 +10,11 @@ import Posts from './Posts';
 import Logout from './Logout';
 import UserPosts from './UserPosts';
 import NewPost from './NewPost'
+import Profile from './Profile';
+import EditPost from './EditPost';
 import { positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const options = {
   timeout: 5000,
@@ -44,10 +47,12 @@ const App = () => {
       <Route path='/register'><Register token={token} /></Route>
       <Route path='/login'><Login token={token} setIsLoggedIn={setIsLoggedIn} setToken={setToken}/></Route>
       <Route path='/logout'><Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/></Route>
+      <Route exact path='/posts/me'><UserPosts token={token}/></Route>
+      <Route exact path='/posts'><Posts isLoggedIn={isLoggedIn}/></Route>
+      <Route exact path='/newpost'><NewPost token={token}/></Route>
+      <Route path='/profile'><Profile isLoggedIn={isLoggedIn}></Profile></Route>
+      <Route path='/posts/edit'><EditPost /></Route>
       
-         <Route exact path='/posts/me'><UserPosts token={token}/></Route>
-        <Route exact path='/posts'><Posts isLoggedIn={isLoggedIn}/></Route>
-        <Route exact path='/newpost'><NewPost token={token}/></Route>
       
       
       
